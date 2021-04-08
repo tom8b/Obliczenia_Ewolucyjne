@@ -4,35 +4,34 @@ namespace ConsoleApp1
 {
     public class Individual
     {
-        public Individual(double x1, double x2, int numberOfBits)
-        {
-            X1 = x1;
-            X2 = x2;
-            NumberOfBits = numberOfBits;
-        }
+        private int a;
+        private int b;
 
-        public Individual(int[] x1, int[] x2)
+        public Individual(int[] x1, int[] x2, int a, int b)
         {
-            // TODO: przypisac x1 i x2 po przeliczeniu na dziesietne
+            X1Binary = x1;
+            X2Binary = x2;
+            this.a = a;
+            this.b = b;
+
             NumberOfBits = x1.Length;
         }
 
-        public double X1 { get; }
-        public double X2 { get; }
+        public int[] X1Binary { get;}
+        public int[] X2Binary { get;}
+
         public int NumberOfBits { get; }
 
         public double FunctionResult => BoothFunction.CalculateFor(this);
 
-        public int[] GetX1Binary()
-        {
-            // TODO
-            throw new NotImplementedException();
-        }
+        public double GetX1Dec(int a, int b, int m) => CalculateDecimal(a, b, m, X1Binary);
 
-        public int[] GetX2Binary()
+        public double GetX2Dec(int a, int b, int m) => CalculateDecimal(a, b, m, X2Binary);
+
+        private double CalculateDecimal(int a, int b, int m, int[] xBinary)
         {
-            // TODO
-            throw new NotImplementedException();
+            var resultOfDecimal = Convert.ToInt32(string.Join("", xBinary), 2);
+            return a + resultOfDecimal * (b - a) / ((2 ^ m) - 1);
         }
     }
 }

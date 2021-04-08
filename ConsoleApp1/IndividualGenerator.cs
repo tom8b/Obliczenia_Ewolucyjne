@@ -7,8 +7,6 @@ namespace ConsoleApp1
     {
         public List<Individual> GenerateList(double minValue, double maxValue, int count, int numberOfBits)
         {
-            
-
             var result = new List<Individual>();
             for (int i = 0; i < count; i++)
             {
@@ -20,7 +18,7 @@ namespace ConsoleApp1
 
             return result;
         }
-
+        
         private double GetRandomDouble(double min, double max)
         {
             Random random = new Random();
