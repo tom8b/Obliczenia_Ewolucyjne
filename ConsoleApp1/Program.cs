@@ -11,10 +11,8 @@ namespace ConsoleApp1
             var generatedList = individualGenerator.GenerateList(10, 6, -10, 10);
             var x = generatedList.First().X1Binary;
             var xx = generatedList.First().GetX1Dec();
-
-            var selekcja = new KrzyzowanieJednopunktowe();
-
-            var nowyOsobnik = selekcja.Krzyzuj(generatedList[0], generatedList[1], -10, 10);
+            var inwersja = new Inwersja();
+            var res = inwersja.Inwersuj(generatedList[0], -10, 10);
 
             Console.WriteLine("Hello World!");
         }
