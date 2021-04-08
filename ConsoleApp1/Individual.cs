@@ -35,8 +35,7 @@ namespace ConsoleApp1
             secondPart = secondPart / (potega - 1);
             secondPart = secondPart * resultOfDecimal + a;
 
-            var result =  a + resultOfDecimal * (b - (double)a) / ((2 ^ NumberOfBits) - 1);
-            return result;
+            return secondPart;
         }
     }
 }
