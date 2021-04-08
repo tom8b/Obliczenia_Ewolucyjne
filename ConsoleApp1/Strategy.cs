@@ -34,8 +34,7 @@ namespace ConsoleApp1
             switch (selectionMethod)
             {
                 case SelectionMethod.BEST:
-                    _selekcjaNajlepszych.Select(population, bestChromosomeAmount);
-                    break;
+                    return _selekcjaNajlepszych.Select(population, bestChromosomeAmount);
                 default:
                     throw new NotImplementedException();
             }
