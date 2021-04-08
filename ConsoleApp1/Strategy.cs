@@ -157,10 +157,9 @@ namespace ConsoleApp1
                 case SelectionMethod.BEST:
                     return _selekcjaNajlepszych.Select(population, bestChromosomeAmount, maximization);
                 case SelectionMethod.Kolo_Ruletki:
-                    return null; // TODO
-                //    return _selekcjaRuletka.Select(population);
+                    return _selekcjaRuletka.Select(population, (int)bestChromosomeAmount);
                 case SelectionMethod.Turniejowa:
-                    return _selekcjaTurniejowa.SelectDouble(population, bestChromosomeAmount, maximization);
+                    return _selekcjaTurniejowa.SelectDouble(population, (int)bestChromosomeAmount, maximization);
                 default:
                     throw new NotImplementedException();
             }
