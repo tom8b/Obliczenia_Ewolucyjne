@@ -37,7 +37,7 @@ namespace ConsoleApp1
             _inwersja = inwersja;
         }
 
-        public void Execute(int a, int b, int populationAmount, int numberOfBits, int epochsAmount, double bestAndTournamentChomosomeAmount, double eliteStrategyAmount, double crossProbability, double mutationProbability, double inversionProbability, SelectionMethod selectionMethod, CrossMethod crossMethod, MutationMethod mutationMethod, bool maximization)
+        public List<Individual> Execute(int a, int b, int populationAmount, int numberOfBits, int epochsAmount, double bestAndTournamentChomosomeAmount, double eliteStrategyAmount, double crossProbability, double mutationProbability, double inversionProbability, SelectionMethod selectionMethod, CrossMethod crossMethod, MutationMethod mutationMethod, bool maximization)
         {
             //Poczatkowa populacja
             var population = _individualGenerator.GenerateList(populationAmount, numberOfBits, a, b);
@@ -50,7 +50,7 @@ namespace ConsoleApp1
                 var newPopulation = new List<Individual>();
 
                 // strategia elitarna - wez X procent najlepszych do nowej populacji
-                newPopulation.AddRange(_selekcjaNajlepszych.Select(afterSelection, eliteStrategyAmount));
+                newPopulation.AddRange(_selekcjaNajlepszych.Select(afterSelection, eliteStrategyAmount, maximization));
 
                 //Mutacja, krzyzowanie i inwersja
                 while (newPopulation.Count < population.Count)
@@ -74,8 +74,7 @@ namespace ConsoleApp1
                 population = newPopulation;
             }
 
-            var xxx = population;
-
+            return population;
         }
 
         private Individual Inwersuj(List<Individual> population, int a, int b)
