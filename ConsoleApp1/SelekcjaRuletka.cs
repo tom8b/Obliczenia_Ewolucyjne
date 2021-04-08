@@ -6,7 +6,19 @@ namespace ConsoleApp1
 {
     public class SelekcjaRuletka
     {
-        public Individual Select(List<Individual> individuals)
+        public List<Individual> Select(List<Individual> individuals, int amountOfSpins)
+        {
+            List<Individual> winners = null;
+
+            for(int i=0;i<amountOfSpins;i++)
+            {
+                winners.Add(SingleSpin(individuals));
+            }
+
+            return winners;
+        }
+
+        private Individual SingleSpin(List<Individual> individuals)
         {
             double[] c;
             double total;
@@ -21,8 +33,8 @@ namespace ConsoleApp1
                 c[i + 1] = c[i] + individuals[i].FunctionResult;
                 total += individuals[i].FunctionResult;
             }
-  
-            double r = random.NextDouble() * total;    
+
+            double r = random.NextDouble() * total;
             int a = 0;
             int b = c.Length - 1;
             while (b - a > 1)
