@@ -13,7 +13,6 @@ namespace ConsoleApp1
             X2Binary = x2;
             this.a = a;
             this.b = b;
-
             NumberOfBits = x1.Length;
         }
 
@@ -24,14 +23,20 @@ namespace ConsoleApp1
 
         public double FunctionResult => BoothFunction.CalculateFor(this);
 
-        public double GetX1Dec(int a, int b, int m) => CalculateDecimal(a, b, m, X1Binary);
+        public double GetX1Dec() => CalculateDecimal(X1Binary);
 
-        public double GetX2Dec(int a, int b, int m) => CalculateDecimal(a, b, m, X2Binary);
+        public double GetX2Dec() => CalculateDecimal(X2Binary);
 
-        private double CalculateDecimal(int a, int b, int m, int[] xBinary)
+        private double CalculateDecimal(int[] xBinary)
         {
             var resultOfDecimal = Convert.ToInt32(string.Join("", xBinary), 2);
-            return a + resultOfDecimal * (b - a) / ((2 ^ m) - 1);
+            double secondPart = b - (double)(a);
+            double potega = Math.Pow(2, NumberOfBits);
+            secondPart = secondPart / (potega - 1);
+            secondPart = secondPart * resultOfDecimal + a;
+
+            var result =  a + resultOfDecimal * (b - (double)a) / ((2 ^ NumberOfBits) - 1);
+            return result;
         }
     }
 }

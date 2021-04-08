@@ -4,7 +4,7 @@ namespace ConsoleApp1
 {
     public class KrzyzowanieJednopunktowe
     {
-        public Individual Krzyzuj(Individual firstIndividual, Individual secondIndividual)
+        public Individual Krzyzuj(Individual firstIndividual, Individual secondIndividual, int a, int b)
         {
             int[] resultX1 = Array.Empty<int>();
             int[] resultX2 = Array.Empty<int>();
@@ -12,11 +12,11 @@ namespace ConsoleApp1
 
             for (int i = 0; i < firstIndividual.NumberOfBits; i++)
             {
-                resultX1[i] = i < punktKrzyzowania ? firstIndividual.GetX1Binary()[i] : secondIndividual.GetX1Binary()[i];
-                resultX2[i] = i < punktKrzyzowania ? firstIndividual.GetX1Binary()[i] : secondIndividual.GetX1Binary()[i];
+                resultX1[i] = i < punktKrzyzowania ? firstIndividual.X1Binary[i] : secondIndividual.X2Binary[i];
+                resultX2[i] = i < punktKrzyzowania ? firstIndividual.X1Binary[i] : secondIndividual.X2Binary[i];
             }
 
-            return new Individual(resultX1, resultX2);
+            return new Individual(resultX1, resultX2, a, b);
         }
 
         private int WybierzPunktKrzyzowania(int numberOfBits)

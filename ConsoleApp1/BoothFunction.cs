@@ -5,7 +5,7 @@
         // BOOTH FUNCTION
         public static double CalculateFor(Individual individual)
         {
-            return (individual.X1 + 2 * individual.X2 - 7) * (individual.X1 + 2 * individual.X2 - 7) + (2 * individual.X1 + individual.X2 - 5) * (2 * individual.X1 + individual.X2 - 5);
+            return (individual.GetX1Dec() + 2 * individual.GetX2Dec() - 7) * (individual.GetX1Dec() + 2 * individual.GetX2Dec() - 7) + (2 * individual.GetX1Dec() + individual.GetX2Dec() - 5) * (2 * individual.GetX1Dec() + individual.GetX2Dec() - 5);
         }
     }
 }

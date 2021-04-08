@@ -5,24 +5,34 @@ namespace ConsoleApp1
 {
     public class IndividualGenerator
     {
-        public List<Individual> GenerateList(double minValue, double maxValue, int count, int numberOfBits)
+        public List<Individual> GenerateList(int count, int numberOfBits, int a, int b)
         {
             var result = new List<Individual>();
             for (int i = 0; i < count; i++)
             {
-                var firstRandomNumberInRange = GetRandomDouble(minValue, maxValue);
-                var secondRandomNumberInRange = GetRandomDouble(minValue, maxValue);
-
-                result.Add(new Individual (firstRandomNumberInRange, secondRandomNumberInRange, numberOfBits));
+                result.Add(new Individual (CreateXFor(numberOfBits), CreateXFor(numberOfBits), a, b));
             }
 
             return result;
         }
-        
-        private double GetRandomDouble(double min, double max)
+
+        private int[] CreateXFor(int numberOfBits)
+        {
+            var array = new int[numberOfBits];
+
+            for (int i = 0; i < numberOfBits; i++)
+            {
+                array[i] = GetRandomZeroOne();
+            }
+
+            return array;
+        }
+
+        private int GetRandomZeroOne()
         {
             Random random = new Random();
-            return random.NextDouble() * (max - min) + min;
+            var randomNumber = random.Next(0, 2);
+            return randomNumber;
         }
     }
 }
