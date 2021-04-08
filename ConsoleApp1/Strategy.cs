@@ -6,17 +6,34 @@ namespace ConsoleApp1
     public class Strategy
     {
         private readonly IndividualGenerator _individualGenerator;
+
         private readonly SelekcjaNajlepszych _selekcjaNajlepszych;
+        private readonly SelekcjaTurniejowa _selekcjaTurniejowa;
+        private readonly SelekcjaRuletka _selekcjaRuletka;
+
         private readonly KrzyzowanieJednopunktowe _krzyzowanieJednopunktowe;
+        private readonly KrzyzowanieDwupunktowe _krzyzowanieDwupunktowe;
+        private readonly KrzyzowanieJednorodne _krzyzowanieJednorodne;
+
         private readonly MutacjaJednopunktowa _mutacjaJednopunktowa;
+        private readonly MutacjaDwupunktowa _mutacjaDwupunktowa;
+        private readonly MutacjaBrzegowa _mutacjaBrzegowa;
         private readonly Inwersja _inwersja;
 
-        public Strategy(IndividualGenerator individualGenerator, SelekcjaNajlepszych selekcjaNajlepszych, KrzyzowanieJednopunktowe krzyzowanieJednopunktowe, MutacjaJednopunktowa mutacjaJednopunktowa, Inwersja inwersja)
+        public Strategy(IndividualGenerator individualGenerator, SelekcjaNajlepszych selekcjaNajlepszych, SelekcjaTurniejowa selekcjaTurniejowa,SelekcjaRuletka selekcjaRuletka,
+            KrzyzowanieJednopunktowe krzyzowanieJednopunktowe, KrzyzowanieDwupunktowe krzyzowanieDwupunktowe, KrzyzowanieJednorodne krzyzowanieJednorodne,
+            MutacjaJednopunktowa mutacjaJednopunktowa, MutacjaDwupunktowa mutacjaDwupunktowa, MutacjaBrzegowa mutacjaBrzegowa, Inwersja inwersja)
         {
             _individualGenerator = individualGenerator;
             _selekcjaNajlepszych = selekcjaNajlepszych;
+            _selekcjaRuletka = selekcjaRuletka;
+            _selekcjaTurniejowa = selekcjaTurniejowa;           
             _krzyzowanieJednopunktowe = krzyzowanieJednopunktowe;
+            _krzyzowanieDwupunktowe = krzyzowanieDwupunktowe;
+            _krzyzowanieJednorodne = krzyzowanieJednorodne;
             _mutacjaJednopunktowa = mutacjaJednopunktowa;
+            _mutacjaDwupunktowa = mutacjaDwupunktowa;
+            _mutacjaBrzegowa = mutacjaBrzegowa;
             _inwersja = inwersja;
         }
 
@@ -69,6 +86,10 @@ namespace ConsoleApp1
             {
                 case MutationMethod.ONE_POINT:
                     return _mutacjaJednopunktowa.Mutuj(randomIndividual);
+                case MutationMethod.TWO_POINT:
+                    return _mutacjaDwupunktowa.Mutuj(randomIndividual);
+                case MutationMethod.BRZEGOWA:
+                    return _mutacjaBrzegowa.Mutuj(randomIndividual);
                 default:
                     throw new NotImplementedException();
             }
@@ -114,6 +135,10 @@ namespace ConsoleApp1
             {
                 case CrossMethod.ONE_POINT:
                     return _krzyzowanieJednopunktowe.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
+                case CrossMethod.TWO_POINT:
+                    return _krzyzowanieDwupunktowe.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
+                case CrossMethod.JEDNORODNE:
+                    return _krzyzowanieJednorodne.Krzyzuj(twoRandomIndividuals[0], twoRandomIndividuals[1], a, b);
                 default:
                     throw new NotImplementedException();
             }
@@ -125,6 +150,11 @@ namespace ConsoleApp1
             {
                 case SelectionMethod.BEST:
                     return _selekcjaNajlepszych.Select(population, bestChromosomeAmount);
+                case SelectionMethod.Kolo_Ruletki:
+                    return null; // TODO
+                //    return _selekcjaRuletka.Select(population);
+                case SelectionMethod.Turniejowa:
+                    return _selekcjaTurniejowa.SelectDouble(population, bestChromosomeAmount);
                 default:
                     throw new NotImplementedException();
             }
