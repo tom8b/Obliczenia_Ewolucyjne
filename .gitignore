@@ -1,2 +1,6 @@
 
 *.cache
+ConsoleApp1/obj/Debug/netcoreapp2.2/ConsoleApp1.csproj.CoreCompileInputs.cache
+.vs/ConsoleApp1/v15/Server/sqlite3/storage.ide-wal
+.vs/ConsoleApp1/v15/Server/sqlite3/storage.ide
+.vs/ConsoleApp1/v15/.suo
