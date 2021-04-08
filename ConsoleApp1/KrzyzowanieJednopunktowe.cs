@@ -6,8 +6,8 @@ namespace ConsoleApp1
     {
         public Individual Krzyzuj(Individual firstIndividual, Individual secondIndividual, int a, int b)
         {
-            int[] resultX1 = Array.Empty<int>();
-            int[] resultX2 = Array.Empty<int>();
+            int[] resultX1 = new int[firstIndividual.NumberOfBits];
+            int[] resultX2 = new int[firstIndividual.NumberOfBits];
             var punktKrzyzowania = WybierzPunktKrzyzowania(firstIndividual.NumberOfBits);
 
             for (int i = 0; i < firstIndividual.NumberOfBits; i++)
