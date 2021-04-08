@@ -7,7 +7,7 @@ namespace ConsoleApp1
 {
     public class SelekcjaTurniejowa
     {
-        public List<Individual> SelectDouble(List<Individual> individuals, int k) 
+        public List<Individual> SelectDouble(List<Individual> individuals, int k, bool maximalization = true) 
         {
             var ordered = individuals.OrderByDescending(x => x.FunctionResult);
 
@@ -21,7 +21,7 @@ namespace ConsoleApp1
             for (var i = 0; i < (float)mixedIndividuals.Length / 3; i++)
             {
                 var x = mixedIndividuals.Skip(i * 3).Take(3);
-                winners.Append(x.Max());
+                winners.Append(maximalization ?  x.Max() : x.Min());
             }
 
             winner = winners.OrderByDescending(item => item.FunctionResult).First();
