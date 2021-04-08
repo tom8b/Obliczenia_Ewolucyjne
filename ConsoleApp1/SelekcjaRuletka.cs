@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class SelekcjaRuletka
+    public class SelekcjaRuletka
     {
         public Individual Select(List<Individual> individuals)
         {

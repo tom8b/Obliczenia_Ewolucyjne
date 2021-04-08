@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleApp1
 {
-    class SelekcjaTurniejowa
+    public class SelekcjaTurniejowa
     {
         public List<Individual> SelectDouble(List<Individual> individuals, int k) 
         {
