@@ -10,3 +10,14 @@ F:\SourceCode\Projekt_OE\CONSOLEAPP\ConsoleApp1\ConsoleApp1\bin\Debug\netcoreapp
 F:\SourceCode\Projekt_OE\CONSOLEAPP\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.dll
 F:\SourceCode\Projekt_OE\CONSOLEAPP\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.pdb
 F:\SourceCode\Projekt_OE\CONSOLEAPP\ConsoleApp1\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.genruntimeconfig.cache
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.csprojAssemblyReference.cache
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.csproj.CoreCompileInputs.cache
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.AssemblyInfoInputs.cache
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.AssemblyInfo.cs
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.dll
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\obj\Debug\netcoreapp2.2\ConsoleApp1.pdb
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.deps.json
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.runtimeconfig.json
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.runtimeconfig.dev.json
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.dll
+C:\Users\gogol\OneDrive\Pulpit\Obliczenia_Ewolucyjne\ConsoleApp1\bin\Debug\netcoreapp2.2\ConsoleApp1.pdb
