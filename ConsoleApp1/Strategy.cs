@@ -160,7 +160,7 @@ namespace ConsoleApp1
                     return null; // TODO
                 //    return _selekcjaRuletka.Select(population);
                 case SelectionMethod.Turniejowa:
-                    return _selekcjaTurniejowa.SelectDouble(population, bestChromosomeAmount);
+                    return _selekcjaTurniejowa.SelectDouble(population, (int)bestChromosomeAmount);
                 default:
                     throw new NotImplementedException();
             }
