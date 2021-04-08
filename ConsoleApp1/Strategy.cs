@@ -45,7 +45,7 @@ namespace ConsoleApp1
             for (int i = 0; i < epochsAmount; i++)
             {
                 //Selekcja
-                var afterSelection = Wyselekcjuj(selectionMethod, population, bestAndTournamentChomosomeAmount);
+                var afterSelection = Wyselekcjuj(selectionMethod, population, bestAndTournamentChomosomeAmount, maximization);
 
                 var newPopulation = new List<Individual>();
 
@@ -150,17 +150,17 @@ namespace ConsoleApp1
             }
         }
 
-        private List<Individual> Wyselekcjuj(SelectionMethod selectionMethod, List<Individual> population, double bestChromosomeAmount)
+        private List<Individual> Wyselekcjuj(SelectionMethod selectionMethod, List<Individual> population, double bestChromosomeAmount, bool maximization)
         {
             switch (selectionMethod)
             {
                 case SelectionMethod.BEST:
-                    return _selekcjaNajlepszych.Select(population, bestChromosomeAmount);
+                    return _selekcjaNajlepszych.Select(population, bestChromosomeAmount, maximization);
                 case SelectionMethod.Kolo_Ruletki:
                     return null; // TODO
                 //    return _selekcjaRuletka.Select(population);
                 case SelectionMethod.Turniejowa:
-                    return _selekcjaTurniejowa.SelectDouble(population, bestChromosomeAmount);
+                    return _selekcjaTurniejowa.SelectDouble(population, bestChromosomeAmount, maximization);
                 default:
                     throw new NotImplementedException();
             }
